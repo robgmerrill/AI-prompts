@@ -11,11 +11,11 @@ function Profile({name, desc, data, handleEdit, handleDelete}) {
         <div className="mt-10 prompt_layout">  
             {data.map((post) => (
                 <PromptCard 
-                key={prompt._id} 
-                post={post} 
-                handleEdit={() => handleEdit && handleEdit(post)} 
-                handleDelete={() => handleDelete && handleDelete(post)}
-            />  
+                    key={prompt._id} 
+                    post={post} 
+                    handleEdit={() => handleEdit && handleEdit(post)} 
+                    handleDelete={() => handleDelete && handleDelete(post)}
+                />  
             ))}
          </div>
     </section>
