@@ -20,7 +20,36 @@ function EditPrompt() {
     }, [promptId])
 
 
-  
+    const updatePrompt = async (e) => {
+        e.preventDefault();
+        setSubmitting(true);
+
+        if (!post.prompt || !post.tag) {
+            alert('Prompt id not found');
+        }
+
+        try {
+            const res = await fetch(`/api/prompt/${promptId}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    prompt: post.prompt,
+                    tag: post.tag,
+                }),
+            });
+
+            if (res.ok) {
+                router.push('/')
+            }
+        } catch (err) {
+            console.log(err);
+        } finally {
+            setSubmitting(false);
+        }
+
+    }
     
   return (
     <Form 
@@ -28,7 +57,7 @@ function EditPrompt() {
         post={post}
         setPost={setPost}
         submitting={submitting}
-        handleSubmit={() => {}}
+        handleSubmit={updatePrompt}
     />
   )
 }
