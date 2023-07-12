@@ -8,7 +8,7 @@ export const metadata = {
   description: 'A place to find inspiration for your next prompt.',
 }
 
-function RootLayout({children}: any) {
+function RootLayout({children}) {
   return (
    <html lang='en'>
     <body>
