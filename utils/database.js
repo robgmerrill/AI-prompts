@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-let isConnected: boolean = false; // track connection status
+let isConnected = false; // track connection status
 
 export const connectToDB = async () => {
     mongoose.set('strictQuery', true);
@@ -11,7 +11,7 @@ export const connectToDB = async () => {
     } 
 
     try {
-       await mongoose.connect(process.env.MONGODB_URI as string, {
+       await mongoose.connect(process.env.MONGODB_URI, {
         dbName: 'share_prompt',
         useNewUrlParser: true,
         useUnifiedTopology: true,
